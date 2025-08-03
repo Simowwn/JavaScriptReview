@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- Modify the previous program so that it asks the user for the first and last
+  number it uses instead of 100 and 0 (hint: use the prompt dialog). -->
+
+  <script>
+    let startNum = prompt("Enter the starting number:");
+    let endNum = prompt("Enter the ending number:");
+    let step = 10;
+
+    for (let i = Number(startNum); i >= Number(endNum); i -= step) {
+      console.log(i);
+    }
+  </script>
+  <body></body>
+</html>

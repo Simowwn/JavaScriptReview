@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- 
+  Exercise 3: Write a simple calculator application. Ask the user for the
+  following input, one by one: two numbers and a character representing a
+  mathematical operation, one of "+", "-", "*", "/". If the user input is valid,
+  calculate the result and show it to the user. If the user input is invalid,
+  display a message that informs the user that an error has occurred. Remember
+  that the value returned by the prompt function is of the type string. You can
+  use the Number.isNaN method to check if you get the correct number after
+  conversion. For example, calling Number.isNaN(10) will return false, while
+  Number.isNaN(NaN) will return true. -->
+
+  <script>
+    let num1 = prompt("Enter the first number:");
+    let num2 = prompt("Enter the second number:");
+    let operation = prompt("Enter an operation (+, -, *, /):");
+    let result;
+    if (Number.isNaN(Number(num1)) || Number.isNaN(Number(num2))) {
+      alert("Error: One or both inputs are not valid numbers.");
+      throw new Error("Invalid number input");
+    }
+    switch (operation) {
+      case "+":
+        result = Number(num1) + Number(num2);
+        alert(`Result: ${result}`);
+        break;
+      case "-":
+        result = Number(num1) - Number(num2);
+        alert(`Result: ${result}`);
+        break;
+      case "*":
+        result = Number(num1) * Number(num2);
+        alert(`Result: ${result}`);
+        break;
+      case "/":
+        if (Number(num2) !== 0) {
+          result = Number(num1) / Number(num2);
+        } else {
+          result = "Error: Division by zero is not allowed.";
+        }
+        alert(`Result: ${result}`);
+        break;
+      default:
+        "unknown operation";
+        alert("Error: Invalid operation. Please enter one of +, -, *, /.");
+    }
+  </script>
+  <body></body>
+</html>

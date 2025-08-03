@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let contacts = [
+      {
+        name: "Maxwell Wright",
+        phone: "(0191) 719 6495",
+        email: "Curabitur.egestas.nunc@nonummyac.co.uk",
+      },
+      {
+        name: "Raja Villarreal",
+        phone: "0866 398 2895",
+        email: "posuere.vulputate@sed.com",
+      },
+      {
+        name: "Helen Richards",
+        phone: "0800 1111",
+        email: "libero@convallis.edu",
+      },
+    ];
+
+    // showing the first contact (first)
+    // showing the last contact (last)
+    // adding a new contact (new)
+
+    let choice = prompt("Choose an option: first, last, new");
+
+    if (choice === "first") {
+      console.log(contacts[0]);
+    } else if (choice === "last") {
+      console.log(contacts[contacts.length - 1]);
+    } else if (choice === "new") {
+      let newName = prompt("Enter name:");
+      let newPhone = prompt("Enter phone:");
+      let newEmail = prompt("Enter email:");
+      contacts.push({
+        name: newName,
+        phone: newPhone,
+        email: newEmail,
+      });
+      alert("New contact added successfully!");
+    } else {
+      alert("Invalid choice. Please enter 'first', 'last', or 'new'.");
+    }
+  </script>
+  <body></body>
+</html>

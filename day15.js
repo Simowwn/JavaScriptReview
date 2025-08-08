@@ -29,3 +29,19 @@ for (number of numbers) {
     console.log(number);
   }
 }
+
+// Exercise 5: The contents of the object describing the position of the vessel named "Mareno" are written on the console:
+// The code presented below is used for this. Complete the program by declaring the missing object in place of the three dots:
+
+let vessel = {
+  latitude: 40.07288,
+  longitude: 154.48535,
+  course: 285.6,
+  speed: 14.0,
+  IMO: 9175717,
+  name: "MARENO",
+};
+
+for (let key in vessel) {
+  console.log(`${key}: ${vessel[key]}`);
+}

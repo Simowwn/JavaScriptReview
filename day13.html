@@ -21,8 +21,16 @@
     let num2 = prompt("Enter the second number:");
     let operation = prompt("Enter an operation (+, -, *, /):");
     let result;
-    if (Number.isNaN(Number(num1)) || Number.isNaN(Number(num2))) {
-      alert("Error: One or both inputs are not valid numbers.");
+
+    if (num1 === "q" || num2 === "q" || operation === "q") {
+      alert("Exiting the calculator.");
+      throw new Error("User exited the calculator");
+    }
+    if (!Number.isNaN(num1) && !Number.isNaN(num2)) {
+      num1 = Number(num1);
+      num2 = Number(num2);
+    } else {
+      alert("Error: Invalid number input.");
       throw new Error("Invalid number input");
     }
     switch (operation) {

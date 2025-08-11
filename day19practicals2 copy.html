@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // Scenario
+    // We will use the functions to add one more item of functionality.
+    // Arrays have a sort method that allows us to sort their elements. To this method, we pass a function
+    // which should compare two elements of the array and decide which one is smaller and which one is bigger.
+    // If the first element is smaller, the function returns a value less than zero, if they are equal it
+    // returns zero, and if the first is larger, it returns a value greater than zero. For example, the array:
+    // can be sorted in ascending order with a call:
+    // Give the user the option to select a sort action from the list. When this option is selected, the user should be able to specify whether they want to sort the contacts by name, phone, or email.
+
+    let contacts = [
+      {
+        name: "Maxwell Wright",
+        phone: "(0191) 719 6495",
+        email: "Curabitur.egestas.nunc@nonummyac.co.uk",
+      },
+      {
+        name: "Raja Villarreal",
+        phone: "0866 398 2895",
+        email: "posuere.vulputate@sed.com",
+      },
+      {
+        name: "Helen Richards",
+        phone: "0800 1111",
+        email: "libero@convallis.edu",
+      },
+    ];
+
+    let showContact = function (contacts, i) {
+      if (contacts instanceof Array && contacts[i]) {
+        console.log(
+          `${contacts[i].name} / ${contacts[i].phone} / ${contacts[i].email}`
+        );
+      }
+    };
+
+    let showAllContacts = function (contacts) {
+      if (contacts instanceof Array) {
+        for (contact of contacts) {
+          console.log(`${contact.name} / ${contact.phone} / ${contact.email}`);
+        }
+      }
+    };
+
+    let addNewContact = function (contacts, name, phone, email) {
+      if (contacts instanceof Array && name && phone && email) {
+        contacts.push({
+          name: name,
+          phone: phone,
+          email: email,
+        });
+      }
+    };
+
+    // Now log the updated list
+    showAllContacts(contacts);
+    addNewContact(contacts, "Charlie", "789", "charlie@example.com");
+    showAllContacts(contacts);
+    showContact(contacts, 1);
+  </script>
+  <body>
+    <h1>Contact List</h1>
+    <ul id="contact-list"></ul>
+    <script>
+      let contactList = document.getElementById("contact-list");
+      contacts.forEach((contact) => {
+        let li = document.createElement("li");
+        li.textContent = `${contact.name} / ${contact.phone} / ${contact.email}`;
+        contactList.appendChild(li);
+      });
+    </script>
+    <input type="radio" name="sort" id="sort-name" value="name" />
+    <label for="sort-name">Sort by Name</label>
+    <input type="radio" name="sort" id="sort-phone" value="phone" />
+    <label for="sort-phone">Sort by Phone</label>
+    <input type="radio" name="sort" id="sort-email" value="email" />
+    <label for="sort-email">Sort by Email</label>
+
+    <script>
+      document.querySelectorAll('input[name="sort"]').forEach((input) => {
+        input.addEventListener("change", function () {
+          let sortBy = this.value;
+          contacts.sort((a, b) => {
+            if (a[sortBy] < b[sortBy]) return -1;
+            if (a[sortBy] > b[sortBy]) return 1;
+            return 0;
+          });
+          contactList.innerHTML = ""; // Clear the list
+          contacts.forEach((contact) => {
+            let li = document.createElement("li");
+            li.textContent = `${contact.name} / ${contact.phone} / ${contact.email}`;
+            contactList.appendChild(li);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
